@@ -5,6 +5,8 @@ const CONTACT = {
 	email: "99alfons@gmail.com",
 	githubUrl: "https://github.com/99alfons-stack",
 	githubText: "github.com/99alfons-stack",
+	instagramUrl: "https://www.instagram.com/alfons_bengtsson",
+	instagramText: "@alfons_bengtsson",
 	location: "Sverige", // TODO: din ort, t.ex. "Jönköping"
 };
 
@@ -53,6 +55,21 @@ function Contact() {
 								<span>
 									<span className="contact-item-label">GitHub</span>
 									<span className="contact-item-value">{CONTACT.githubText}</span>
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href={CONTACT.instagramUrl} className="contact-item" target="_blank" rel="noreferrer">
+								<span className="contact-icon" aria-hidden="true">
+									<svg viewBox="0 0 24 24">
+										<rect x="3" y="3" width="18" height="18" rx="5" />
+										<circle cx="12" cy="12" r="4" />
+										<path d="M17.5 6.5h.01" />
+									</svg>
+								</span>
+								<span>
+									<span className="contact-item-label">Instagram</span>
+									<span className="contact-item-value">{CONTACT.instagramText}</span>
 								</span>
 							</a>
 						</li>

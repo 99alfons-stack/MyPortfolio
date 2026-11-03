@@ -31,13 +31,19 @@ function Navbar() {
 			.map((id) => document.getElementById(id))
 			.filter((el): el is HTMLElement => el !== null);
 
+		// Vilka sektioner som ligger i bandet just nu. Flera händelser kan komma
+		// samtidigt (t.ex. vid hopp via länk), så vi sparar läget och väljer sedan
+		// istället för att lita på den sista händelsen.
+		const visible = new Set<string>();
+
 		const observer = new IntersectionObserver(
 			(entries) => {
 				for (const entry of entries) {
-					if (entry.isIntersecting) {
-						setActive(entry.target.id === "hem" ? "" : entry.target.id);
-					}
+					if (entry.isIntersecting) visible.add(entry.target.id);
+					else visible.delete(entry.target.id);
 				}
+				const current = ids.find((id) => visible.has(id));
+				if (current) setActive(current === "hem" ? "" : current);
 			},
 			// Räkna bara ett smalt band mitt på skärmen som "synligt".
 			{ rootMargin: "-45% 0px -50% 0px" },
