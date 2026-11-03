@@ -53,7 +53,7 @@ const INTERESTS: Interest[] = [
 	},
 	{
 		title: "Kampsport",
-		text: "Tränar sportjujutsu och brasiliansk jiujitsu. Bra för både kropp och huvud.",
+		text: "Tränar sportjujutsu och brasiliansk jiujitsu.",
 		icon: svg(
 			<>
 				<path d="M7 11V7a3 3 0 0 1 3-3h4a4 4 0 0 1 4 4v5a6 6 0 0 1-6 6h-1a4 4 0 0 1-4-4z" />
