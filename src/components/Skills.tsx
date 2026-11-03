@@ -22,7 +22,7 @@ const SKILL_GROUPS: SkillGroup[] = [
 			{ name: "HTML & CSS", level: 40 },
 			{ name: "JavaScript", level: 40 },
 			{ name: "TypeScript", level: 40 },
-			{ name: "React", level: 40 },
+			{ name: "React", level: 20 },
 		],
 	},
 	{
@@ -31,7 +31,6 @@ const SKILL_GROUPS: SkillGroup[] = [
 		skills: [
 			{ name: "Node.js", level: 20 },
 			{ name: "REST-API:er", level: 20 },
-			{ name: "Monitor ERP API", level: 20 },
 		],
 	},
 	{
@@ -39,8 +38,8 @@ const SKILL_GROUPS: SkillGroup[] = [
 		description: "Det jag bygger och samarbetar med",
 		skills: [
 			{ name: "Git & GitHub", level: 70 },
-			{ name: "Vite", level: 50 },
-			{ name: "Felsökning i DevTools", level: 45 },
+			{ name: "Vite", level: 20 },
+			{ name: "Felsökning i DevTools", level: 30 },
 		],
 	},
 ];
