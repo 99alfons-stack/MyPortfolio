@@ -1,0 +1,237 @@
+/* ---------- Projekt ---------- */
+.projects-lead {
+	color: var(--text-muted);
+}
+
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 24px;
+	margin-top: 40px;
+}
+
+.project-card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 18px;
+	transition:
+		border-color 0.25s ease,
+		transform 0.25s ease,
+		box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+	border-color: var(--border-strong);
+	transform: translateY(-4px);
+	box-shadow: 0 24px 60px -30px rgba(124, 92, 255, 0.5);
+}
+
+/* ---------- Illustrationen överst ---------- */
+.project-visual {
+	position: relative;
+	display: grid;
+	place-items: center;
+	height: 180px;
+	border-bottom: 1px solid var(--border);
+	background-image:
+		linear-gradient(var(--border) 1px, transparent 1px),
+		linear-gradient(90deg, var(--border) 1px, transparent 1px);
+	background-size: 24px 24px;
+}
+
+.project-visual-scan {
+	background-color: rgba(124, 92, 255, 0.08);
+}
+
+.project-visual-portfolio {
+	background-color: rgba(34, 211, 238, 0.06);
+}
+
+.project-visual svg {
+	width: 100%;
+	max-width: 320px;
+	height: 100%;
+}
+
+.pv-stroke {
+	fill: none;
+	stroke: rgba(255, 255, 255, 0.55);
+	stroke-width: 2.5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.pv-fill {
+	fill: rgba(255, 255, 255, 0.75);
+}
+
+.pv-muted {
+	fill: rgba(255, 255, 255, 0.2);
+}
+
+.pv-accent {
+	fill: var(--accent);
+	opacity: 0.85;
+}
+
+/* Den cyan skanningslinjen rör sig upp och ner */
+.pv-scanline {
+	stroke: var(--accent-2);
+	stroke-width: 2;
+	filter: drop-shadow(0 0 6px var(--accent-2));
+	animation: scanline 2.4s ease-in-out infinite;
+}
+
+@keyframes scanline {
+	0%,
+	100% {
+		transform: translateY(-22px);
+	}
+	50% {
+		transform: translateY(22px);
+	}
+}
+
+.project-status {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 4px 12px;
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--heading);
+	background: rgba(11, 13, 18, 0.7);
+	border: 1px solid var(--border-strong);
+	border-radius: 999px;
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+}
+
+.project-status-dot {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: #fbbf24;
+	box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+}
+
+/* ---------- Text ---------- */
+.project-body {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	padding: 28px;
+}
+
+.project-subtitle {
+	font-family: var(--mono);
+	font-size: 12.5px;
+	color: var(--accent-2);
+}
+
+.project-body h3 {
+	margin-top: 6px;
+	font-size: 24px;
+}
+
+.project-description {
+	margin-top: 12px;
+	color: var(--text-muted);
+}
+
+.project-highlights {
+	display: grid;
+	gap: 8px;
+	margin: 20px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.project-highlights li {
+	position: relative;
+	padding-left: 22px;
+	font-size: 15px;
+}
+
+/* Liten bock framför varje punkt */
+.project-highlights li::before {
+	content: "";
+	position: absolute;
+	left: 2px;
+	top: 0.5em;
+	width: 10px;
+	height: 6px;
+	border-left: 2px solid var(--accent-2);
+	border-bottom: 2px solid var(--accent-2);
+	transform: rotate(-45deg);
+}
+
+.project-tech {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 24px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.project-tech li {
+	padding: 3px 10px;
+	font-family: var(--mono);
+	font-size: 12px;
+	color: var(--text-muted);
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid var(--border);
+	border-radius: 6px;
+}
+
+.project-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: auto; /* trycker länken längst ner i kortet */
+	padding-top: 24px;
+	font-weight: 600;
+	color: var(--heading);
+}
+
+.project-link svg {
+	width: 18px;
+	height: 18px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	transition: transform 0.2s ease;
+}
+
+.project-link:hover {
+	color: var(--accent-2);
+}
+
+.project-link:hover svg {
+	transform: translate(2px, -2px);
+}
+
+@media (max-width: 900px) {
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 600px) {
+	.project-body {
+		padding: 22px;
+	}
+
+	.project-visual {
+		height: 150px;
+	}
+}

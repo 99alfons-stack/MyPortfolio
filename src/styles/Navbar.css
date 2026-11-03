@@ -1,0 +1,222 @@
+/* ---------- Menyn ---------- */
+.navbar {
+	position: fixed;
+	inset: 0 0 auto 0;
+	z-index: 100;
+	height: var(--nav-height);
+	border-bottom: 1px solid transparent;
+	transition:
+		background 0.25s ease,
+		border-color 0.25s ease,
+		backdrop-filter 0.25s ease;
+}
+
+/* När man scrollat: halvgenomskinlig bakgrund med "frostat glas" */
+.navbar.is-scrolled {
+	background: rgba(11, 13, 18, 0.72);
+	border-bottom-color: var(--border);
+	backdrop-filter: blur(14px) saturate(140%);
+	-webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+.navbar-inner {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+}
+
+/* ---------- Logga ---------- */
+.navbar-logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-weight: 700;
+	font-size: 17px;
+	color: var(--heading);
+	letter-spacing: -0.01em;
+}
+
+.navbar-logo-mark {
+	display: grid;
+	place-items: center;
+	width: 34px;
+	height: 34px;
+	font-size: 16px;
+	font-weight: 800;
+	color: #fff;
+	background: var(--gradient);
+	border-radius: 10px;
+	box-shadow: 0 6px 18px -6px rgba(124, 92, 255, 0.7);
+}
+
+/* ---------- Länkar ---------- */
+.navbar-links {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.navbar-links a {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 14px;
+	font-size: 15px;
+	font-weight: 500;
+	color: var(--text-muted);
+	border-radius: 999px;
+	transition:
+		color 0.2s ease,
+		background 0.2s ease;
+}
+
+.navbar-links a:hover {
+	color: var(--heading);
+	background: var(--surface);
+}
+
+/* Aktiv sektion: vit text och en liten gradientlinje under */
+.navbar-links a.is-active {
+	color: var(--heading);
+}
+
+.navbar-links a.is-active::after {
+	content: "";
+	position: absolute;
+	left: 14px;
+	right: 14px;
+	bottom: 2px;
+	height: 2px;
+	border-radius: 2px;
+	background: var(--gradient);
+}
+
+.navbar-divider {
+	width: 1px;
+	height: 20px;
+	margin: 0 8px;
+	background: var(--border-strong);
+}
+
+.navbar-github svg {
+	width: 18px;
+	height: 18px;
+	fill: currentColor;
+}
+
+/* ---------- Hamburgerknapp (mobil) ---------- */
+.navbar-toggle {
+	display: none;
+	position: relative;
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.navbar-toggle span {
+	position: absolute;
+	left: 11px;
+	right: 11px;
+	height: 2px;
+	border-radius: 2px;
+	background: var(--heading);
+	transition:
+		transform 0.25s ease,
+		opacity 0.2s ease;
+}
+
+.navbar-toggle span:nth-child(1) {
+	top: 14px;
+}
+.navbar-toggle span:nth-child(2) {
+	top: 20px;
+}
+.navbar-toggle span:nth-child(3) {
+	top: 26px;
+}
+
+/* Strecken blir ett kryss när menyn är öppen */
+.navbar-toggle.is-open span:nth-child(1) {
+	transform: translateY(6px) rotate(45deg);
+}
+.navbar-toggle.is-open span:nth-child(2) {
+	opacity: 0;
+}
+.navbar-toggle.is-open span:nth-child(3) {
+	transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ---------- Mobil ---------- */
+@media (max-width: 760px) {
+	.navbar-toggle {
+		display: block;
+	}
+
+	/* Länkarna blir en panel som fälls ut under menyn */
+	.navbar-links {
+		position: absolute;
+		top: var(--nav-height);
+		left: 0;
+		right: 0;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 4px;
+		padding: 12px var(--gutter) 20px;
+		background: rgba(11, 13, 18, 0.96);
+		border-bottom: 1px solid var(--border);
+		backdrop-filter: blur(14px);
+		-webkit-backdrop-filter: blur(14px);
+
+		/* Dold tills den öppnas */
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-8px);
+		transition:
+			opacity 0.2s ease,
+			transform 0.2s ease,
+			visibility 0.2s;
+	}
+
+	.navbar-links.is-open {
+		opacity: 1;
+		visibility: visible;
+		transform: none;
+	}
+
+	.navbar-links a {
+		width: 100%;
+		padding: 12px 14px;
+		font-size: 17px;
+		border-radius: 12px;
+	}
+
+	.navbar-links a.is-active {
+		background: var(--surface);
+	}
+
+	/* På mobil markeras aktiv länk med en linje till vänster istället */
+	.navbar-links a.is-active::after {
+		left: 0;
+		right: auto;
+		top: 12px;
+		bottom: 12px;
+		width: 3px;
+		height: auto;
+	}
+
+	.navbar-divider {
+		width: auto;
+		height: 1px;
+		margin: 8px 0;
+	}
+}

@@ -1,0 +1,121 @@
+/* ---------- Kompetenser ---------- */
+.skills-lead {
+	max-width: 620px;
+	color: var(--text-muted);
+}
+
+/* Skalan 0 – 50 – 100 ovanför korten */
+.skills-scale {
+	display: flex;
+	justify-content: space-between;
+	max-width: 620px;
+	margin: 28px 0 32px;
+	padding-top: 10px;
+	font-family: var(--mono);
+	font-size: 12px;
+	color: var(--text-muted);
+	border-top: 1px dashed var(--border-strong);
+}
+
+.skills-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+.skills-card {
+	padding: 28px;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	transition:
+		border-color 0.2s ease,
+		transform 0.2s ease;
+}
+
+.skills-card:hover {
+	border-color: var(--border-strong);
+	transform: translateY(-2px);
+}
+
+.skills-card h3 {
+	font-size: 20px;
+}
+
+.skills-card-description {
+	margin-top: 4px;
+	font-size: 14px;
+	color: var(--text-muted);
+}
+
+.skills-list {
+	display: grid;
+	gap: 20px;
+	margin: 24px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.skill-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 12px;
+	margin-bottom: 8px;
+}
+
+.skill-name {
+	font-weight: 600;
+	color: var(--heading);
+}
+
+.skill-level {
+	font-size: 13px;
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+
+.skill-level strong {
+	margin-left: 4px;
+	font-family: var(--mono);
+	font-weight: 500;
+	color: var(--heading);
+}
+
+/* Den tomma stapeln */
+.skill-track {
+	position: relative;
+	height: 8px;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.06);
+	border-radius: 999px;
+}
+
+/* Den ifyllda delen. Bredden sätts i Skills.tsx (0–100 %). */
+.skill-fill {
+	height: 100%;
+	border-radius: inherit;
+	background: var(--gradient);
+	box-shadow: 0 0 12px rgba(124, 92, 255, 0.45);
+	transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 900px) {
+	.skills-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 600px) {
+	.skills-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.skills-card {
+		padding: 22px;
+	}
+
+	.skills-scale span:nth-child(2) {
+		display: none; /* för trångt på mobil */
+	}
+}
