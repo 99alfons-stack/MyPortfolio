@@ -13,7 +13,7 @@
 
 /* När man scrollat: halvgenomskinlig bakgrund med "frostat glas" */
 .navbar.is-scrolled {
-	background: rgba(11, 13, 18, 0.72);
+	background: var(--nav-bg); /* [Claude] var rgba(11, 13, 18, 0.72) */
 	border-bottom-color: var(--border);
 	backdrop-filter: blur(14px) saturate(140%);
 	-webkit-backdrop-filter: blur(14px) saturate(140%);
@@ -48,7 +48,7 @@
 	color: #fff;
 	background: var(--gradient);
 	border-radius: 10px;
-	box-shadow: 0 6px 18px -6px rgba(124, 92, 255, 0.7);
+	box-shadow: 0 6px 18px -6px color-mix(in srgb, var(--accent) 60%, transparent); /* [Claude] */
 }
 
 /* ---------- Länkar ---------- */
@@ -172,7 +172,7 @@
 		align-items: stretch;
 		gap: 4px;
 		padding: 12px var(--gutter) 20px;
-		background: rgba(11, 13, 18, 0.96);
+		background: var(--nav-bg-solid); /* [Claude] var rgba(11, 13, 18, 0.96) */
 		border-bottom: 1px solid var(--border);
 		backdrop-filter: blur(14px);
 		-webkit-backdrop-filter: blur(14px);

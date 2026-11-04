@@ -7,8 +7,10 @@ interface Project {
 	description: string;
 	highlights: string[]; // det viktigaste du gjort, en rad per punkt
 	tech: string[];
-	githubUrl: string;
-	visual: "scan" | "portfolio"; // vilken illustration kortet visar
+	// [Claude] Ändrat från "githubUrl: string" till valfri (?), eftersom betongsidan inte har något repo än.
+	githubUrl?: string; // valfri: utan länk visas ingen GitHub-knapp
+	// [Claude] Lagt till "concrete" för betongsidans bild.
+	visual: "scan" | "portfolio" | "concrete"; // vilken illustration kortet visar
 }
 
 // Lägg till nya projekt överst i listan.
@@ -29,6 +31,25 @@ const PROJECTS: Project[] = [
 		githubUrl: "https://github.com/99alfons-stack/EAN-Netic",
 		visual: "scan",
 	},
+	// ===== [Claude] START: nytt projekt – sidan för föräldrarnas betongfigurer och sällskapsspel =====
+	// Ändra gärna titel och text. tech är en gissning (samma som portfolion) – justera efter vad du faktiskt använder.
+	// Lägg till githubUrl: "https://github.com/..." när repot finns, så visas GitHub-knappen.
+	// [Claude] Flyttad under Scan2ERP så att LIA-projektet visas först.
+	{
+		title: "Concrete shop",
+		subtitle: "Website for my parents' business",
+		status: "In progress",
+		description:
+			"Website for my parents, who make and sell handcrafted concrete figurines and board games. The site shows off their products and makes it easy for customers to get in touch.",
+		highlights: [
+			"Product pages for figurines and board games",
+			"Built for real users and a real small business",
+			"Responsive design that works on phone and desktop",
+		],
+		tech: ["React", "TypeScript", "Vite", "CSS"],
+		visual: "concrete",
+	},
+	// ===== [Claude] SLUT: nytt projekt =====
 	{
 		title: "My portfolio",
 		subtitle: "This site",
@@ -62,6 +83,25 @@ function ProjectVisual({ type }: { type: Project["visual"] }) {
 			</svg>
 		);
 	}
+
+	// ===== [Claude] START: bild för betongsidan – ett spelbräde med pjäser och en figur =====
+	if (type === "concrete") {
+		return (
+			<svg viewBox="0 0 320 160" aria-hidden="true">
+				{/* Spelbräde 3x3 */}
+				<rect x="64" y="34" width="96" height="96" rx="8" className="pv-stroke" />
+				<path d="M96 34v96M128 34v96M64 66h96M64 98h96" className="pv-stroke" />
+				<circle cx="80" cy="50" r="8" className="pv-accent" />
+				<circle cx="144" cy="82" r="8" className="pv-accent" />
+				<circle cx="112" cy="114" r="8" className="pv-muted" />
+				{/* Spelpjäs/figur */}
+				<circle cx="222" cy="58" r="14" className="pv-fill" />
+				<path d="M210 76h24l8 40h-40z" className="pv-fill" />
+				<rect x="194" y="116" width="56" height="12" rx="4" className="pv-fill" />
+			</svg>
+		);
+	}
+	// ===== [Claude] SLUT: bild för betongsidan =====
 
 	return (
 		<svg viewBox="0 0 320 160" aria-hidden="true">
@@ -116,12 +156,15 @@ function Projects() {
 									))}
 								</ul>
 
-								<a href={project.githubUrl} className="project-link" target="_blank" rel="noreferrer">
-									View the code on GitHub
-									<svg viewBox="0 0 24 24" aria-hidden="true">
-										<path d="M7 17 17 7M9 7h8v8" />
-									</svg>
-								</a>
+								{/* [Claude] Länken visas bara om projektet har en githubUrl. */}
+								{project.githubUrl && (
+									<a href={project.githubUrl} className="project-link" target="_blank" rel="noreferrer">
+										View the code on GitHub
+										<svg viewBox="0 0 24 24" aria-hidden="true">
+											<path d="M7 17 17 7M9 7h8v8" />
+										</svg>
+									</a>
+								)}
 							</div>
 						</article>
 					))}

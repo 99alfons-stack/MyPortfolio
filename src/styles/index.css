@@ -1,20 +1,46 @@
 /* Grundinställningar: färger, typsnitt och layout.
    Alla färger samlas som variabler, så att hela sidans utseende ändras på ett ställe. */
+/* [Claude] Den gamla mörka paletten (lila/cyan), om du vill byta tillbaka:
+	--bg: #0b0d12; --bg-elevated: #12151c;
+	--surface: rgba(255, 255, 255, 0.04); --surface-hover: rgba(255, 255, 255, 0.07);
+	--border: rgba(255, 255, 255, 0.08); --border-strong: rgba(255, 255, 255, 0.16);
+	--text: #c9ceda; --text-muted: #8b93a5; --heading: #f5f7fb;
+	--accent: #7c5cff; --accent-2: #22d3ee;
+	(sätt även color-scheme: dark och mörka värden på --nav-bg, --surface-sunken och --badge-*)
+*/
 :root {
-	--bg: #0b0d12; /* sidans bakgrund */
-	--bg-elevated: #12151c; /* menyer och paneler */
-	--surface: rgba(255, 255, 255, 0.04); /* kort */
-	--surface-hover: rgba(255, 255, 255, 0.07);
-	--border: rgba(255, 255, 255, 0.08);
-	--border-strong: rgba(255, 255, 255, 0.16);
+	/* ===== [Claude] START: ljus palett med grönt och brunt ===== */
+	/* [Claude] Mörkare version. Första ljusa versionen: bg #f5f2ea, bg-elevated #fbf9f4,
+	   surface #ffffff, surface-hover #fdfbf6, surface-sunken #ede7da, text-muted #6f6557, accent-2 #8a5a30 */
+	/* [Claude] Version 2 (ljus sand): bg #e6e0d2, bg-elevated #efeadf, surface #f6f3ec,
+	   surface-hover #f9f7f1, surface-sunken #dad2c1, text #463f34, text-muted #615847,
+	   accent #2f6b4f, accent-2 #7d5029 */
+	--bg: #cfc6b2; /* sidans bakgrund – khaki/sand */
+	--bg-elevated: #d8d0be; /* menyer och paneler */
+	--surface: #e3ddcf; /* kort */
+	--surface-hover: #e8e3d7;
+	--surface-sunken: #c2b8a2; /* nedsänkta ytor: staplar, taggar, listrader */
+	--border: rgba(60, 45, 28, 0.16);
+	--border-strong: rgba(60, 45, 28, 0.3);
 
-	--text: #c9ceda; /* brödtext */
-	--text-muted: #8b93a5; /* hjälptext */
-	--heading: #f5f7fb; /* rubriker */
+	--text: #3a3328; /* brödtext – mörkare för att synas mot den mörkare bakgrunden */
+	--text-muted: #4f4738; /* hjälptext */
+	--heading: #1a251d; /* rubriker – nästan svart med grön ton */
 
-	--accent: #7c5cff; /* lila */
-	--accent-2: #22d3ee; /* cyan */
-	--gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+	--accent: #285c43; /* skogsgrön – mörkare för kontrast */
+	--accent-2: #6b4422; /* valnötsbrun – mörkare för kontrast */
+	--gradient: linear-gradient(135deg, var(--accent) 0%, #4f7a42 55%, var(--accent-2) 100%);
+
+	--nav-bg: rgba(207, 198, 178, 0.85); /* menyn när man scrollat */
+	--nav-bg-solid: rgba(207, 198, 178, 0.97); /* mobilmenyn */
+	--shadow-soft: 0 1px 2px rgba(60, 45, 30, 0.05), 0 10px 30px -14px rgba(60, 45, 30, 0.22);
+
+	/* Den svävande kodbrickan i Hero är mörkgrön för kontrast mot den ljusa sidan */
+	--badge-bg: #1f2d24;
+	--badge-text: #e9e4d8;
+	--code-key: #b9d8a8; /* salviagrön */
+	--code-string: #e8c79c; /* sand */
+	/* ===== [Claude] SLUT ===== */
 
 	--radius: 14px;
 	--nav-height: 68px;
@@ -27,7 +53,7 @@
 	font: 16px/1.6 var(--sans);
 	color: var(--text);
 	background: var(--bg);
-	color-scheme: dark;
+	color-scheme: light; /* [Claude] var: dark */
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -71,8 +97,9 @@ img {
 }
 
 ::selection {
-	background: rgba(124, 92, 255, 0.35);
-	color: #fff;
+	/* [Claude] color-mix blandar accentfärgen med genomskinligt, så att färgen följer paletten */
+	background: color-mix(in srgb, var(--accent) 25%, transparent);
+	color: var(--heading);
 }
 
 :focus-visible {
@@ -118,11 +145,11 @@ section {
 .btn-primary {
 	color: #fff;
 	background: var(--gradient);
-	box-shadow: 0 8px 24px -8px rgba(124, 92, 255, 0.6);
+	box-shadow: 0 8px 24px -8px color-mix(in srgb, var(--accent) 55%, transparent); /* [Claude] */
 }
 
 .btn-primary:hover {
-	box-shadow: 0 12px 32px -8px rgba(124, 92, 255, 0.8);
+	box-shadow: 0 12px 32px -8px color-mix(in srgb, var(--accent) 70%, transparent); /* [Claude] */
 }
 
 .btn-ghost {
@@ -133,7 +160,7 @@ section {
 
 .btn-ghost:hover {
 	background: var(--surface-hover);
-	border-color: rgba(255, 255, 255, 0.28);
+	border-color: color-mix(in srgb, var(--heading) 35%, transparent); /* [Claude] */
 }
 
 /* ---------- Platshållarsektioner (fylls i senare) ---------- */
