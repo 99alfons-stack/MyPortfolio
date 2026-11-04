@@ -7,23 +7,23 @@ const CONTACT = {
 	githubText: "github.com/99alfons-stack",
 	instagramUrl: "https://www.instagram.com/alfons_bengtsson",
 	instagramText: "@alfons_bengtsson",
-	location: "Sverige", // TODO: din ort, t.ex. "Jönköping"
+	location: "Sweden", // TODO: your city, e.g. "Jönköping"
 };
 
 function Contact() {
 	return (
-		<section id="kontakt" className="section contact">
+		<section id="contact" className="section contact">
 			<div className="container">
 				<div className="contact-panel">
 					<div className="contact-intro">
-						<p className="section-label">04. Kontakt</p>
-						<h2>Låt oss höras</h2>
+						<p className="section-label">04. Contact</p>
+						<h2>Get in touch</h2>
 						<p className="contact-lead">
-							Letar du efter en utvecklare, har en fråga om mina projekt eller vill bara säga hej?
-							Skicka ett mejl så svarar jag så snart jag kan.
+							Looking for a developer, have a question about my projects or just want to say hi?
+							Send me an email and I'll get back to you as soon as I can.
 						</p>
 						<a href={`mailto:${CONTACT.email}`} className="btn btn-primary contact-cta">
-							Skicka ett mejl
+							Send an email
 							<svg className="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
 								<path d="M5 12h14M13 6l6 6-6 6" />
 							</svg>
@@ -40,7 +40,7 @@ function Contact() {
 									</svg>
 								</span>
 								<span>
-									<span className="contact-item-label">E-post</span>
+									<span className="contact-item-label">Email</span>
 									<span className="contact-item-value">{CONTACT.email}</span>
 								</span>
 							</a>
@@ -82,7 +82,7 @@ function Contact() {
 									</svg>
 								</span>
 								<span>
-									<span className="contact-item-label">Ort</span>
+									<span className="contact-item-label">Location</span>
 									<span className="contact-item-value">{CONTACT.location}</span>
 								</span>
 							</div>
@@ -92,7 +92,7 @@ function Contact() {
 
 				<footer className="footer">
 					<span>© {new Date().getFullYear()} Alfons</span>
-					<span>Byggd med React och TypeScript</span>
+					<span>Built with React and TypeScript</span>
 				</footer>
 			</div>
 		</section>

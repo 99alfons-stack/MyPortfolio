@@ -3,10 +3,10 @@ import "../styles/Navbar.css";
 
 // Länkarna i menyn. id = sektionens id på sidan.
 const LINKS = [
-	{ id: "om-mig", label: "Om mig" },
-	{ id: "projekt", label: "Projekt" },
-	{ id: "kompetenser", label: "Kompetenser" },
-	{ id: "kontakt", label: "Kontakt" },
+	{ id: "about", label: "About" },
+	{ id: "projects", label: "Projects" },
+	{ id: "skills", label: "Skills" },
+	{ id: "contact", label: "Contact" },
 ];
 
 const GITHUB_URL = "https://github.com/99alfons-stack";
@@ -26,7 +26,7 @@ function Navbar() {
 
 	// Markera länken för den sektion som är mitt på skärmen.
 	useEffect(() => {
-		const ids = ["hem", ...LINKS.map((link) => link.id)];
+		const ids = ["home", ...LINKS.map((link) => link.id)];
 		const sections = ids
 			.map((id) => document.getElementById(id))
 			.filter((el): el is HTMLElement => el !== null);
@@ -43,7 +43,7 @@ function Navbar() {
 					else visible.delete(entry.target.id);
 				}
 				const current = ids.find((id) => visible.has(id));
-				if (current) setActive(current === "hem" ? "" : current);
+				if (current) setActive(current === "home" ? "" : current);
 			},
 			// Räkna bara ett smalt band mitt på skärmen som "synligt".
 			{ rootMargin: "-45% 0px -50% 0px" },
@@ -65,8 +65,8 @@ function Navbar() {
 
 	return (
 		<header className={`navbar ${scrolled || open ? "is-scrolled" : ""}`}>
-			<nav className="navbar-inner container" aria-label="Huvudmeny">
-				<a href="#hem" className="navbar-logo" onClick={() => setOpen(false)}>
+			<nav className="navbar-inner container" aria-label="Main menu">
+				<a href="#home" className="navbar-logo" onClick={() => setOpen(false)}>
 					<span className="navbar-logo-mark" aria-hidden="true">
 						A
 					</span>
@@ -93,7 +93,7 @@ function Navbar() {
 							className="navbar-github"
 							target="_blank"
 							rel="noreferrer"
-							aria-label="GitHub (öppnas i ny flik)"
+							aria-label="GitHub (opens in a new tab)"
 						>
 							{/* GitHub-ikon */}
 							<svg viewBox="0 0 24 24" aria-hidden="true">
@@ -110,7 +110,7 @@ function Navbar() {
 					className={`navbar-toggle ${open ? "is-open" : ""}`}
 					aria-expanded={open}
 					aria-controls="navbar-links"
-					aria-label={open ? "Stäng menyn" : "Öppna menyn"}
+					aria-label={open ? "Close menu" : "Open menu"}
 					onClick={() => setOpen((value) => !value)}
 				>
 					<span />

@@ -15,9 +15,9 @@ interface Interest {
 
 // Snabbfakta som visas i panelen till höger.
 const FACTS: Fact[] = [
-	{ label: "Utbildning", value: "Webbutvecklare.net", detail: "Sista året" },
-	{ label: "LIA", value: "Netic AB", detail: "Min första LIA" },
-	{ label: "Bygger just nu", value: "Scan2ERP", detail: "React · TypeScript · Node.js" },
+	{ label: "Education", value: "Webbutvecklare.net", detail: "Final year" },
+	{ label: "Internship", value: "Netic AB", detail: "My first internship" },
+	{ label: "Currently building", value: "Scan2ERP", detail: "React · TypeScript · Node.js" },
 ];
 
 // Ikonerna ritas med SVG så att de följer sidans färger.
@@ -40,8 +40,8 @@ const svg = (path: ReactNode) => (
 // Det jag gör när jag inte kodar.
 const INTERESTS: Interest[] = [
 	{
-		title: "Spel",
-		text: "Minecraft, Age of Empires-serien och roliga simulatorspel som går att köra co-op med vänner och familj.",
+		title: "Gaming",
+		text: "Minecraft, the Age of Empires series and fun simulator games I can play co-op with friends and family.",
 		icon: svg(
 			<>
 				<rect x="2" y="7" width="20" height="10" rx="5" />
@@ -52,8 +52,8 @@ const INTERESTS: Interest[] = [
 		),
 	},
 	{
-		title: "Kampsport",
-		text: "Tränar sportjujutsu och brasiliansk jiujitsu.",
+		title: "Martial arts",
+		text: "I train  ju-jutsu.",
 		icon: svg(
 			<>
 				<path d="M7 11V7a3 3 0 0 1 3-3h4a4 4 0 0 1 4 4v5a6 6 0 0 1-6 6h-1a4 4 0 0 1-4-4z" />
@@ -64,10 +64,22 @@ const INTERESTS: Interest[] = [
 	},
 	{
 		title: "Ford Mustang -69",
-		text: "Köpte den 2019 och har totalrenoverat motorn och fått igång den med hjälp av dokumentation och YouTube. Felsökning, fast med skiftnyckel.",
+		text: "Bought it in 2019, rebuilt the engine and got it running with the help of manuals and YouTube. Debugging, but with a wrench.",
 		icon: svg(
 			<>
 				<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z" />
+			</>,
+		),
+	},
+	{
+		title: "Scuba diving",
+		text: "I dive every spring and summer, among other places on the Swedish west coast, with Amfibia – one of Sweden's oldest diving clubs.",
+		icon: svg(
+			<>
+				{/* Dykmask med bubblor */}
+				<path d="M3 11a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v3a3 3 0 0 1-3 3h-3l-1.5-2h-3L9 17H6a3 3 0 0 1-3-3z" />
+				<circle cx="17" cy="4.5" r="1.3" />
+				<circle cx="20.5" cy="2.5" r="0.8" />
 			</>,
 		),
 	},
@@ -75,29 +87,29 @@ const INTERESTS: Interest[] = [
 
 function About() {
 	return (
-		<section id="om-mig" className="section about">
+		<section id="about" className="section about">
 			<div className="container">
-				<p className="section-label">01. Om mig</p>
-				<h2>Lite om mig</h2>
+				<p className="section-label">01. About</p>
+				<h2>A bit about me</h2>
 
 				<div className="about-grid">
 					<div className="about-text">
 						<p className="about-lead">
-							Jag går mitt <strong>sista år på Webbutvecklare.net</strong> och gör just nu min första
-							LIA hos <strong>Netic AB</strong>.
+							I'm in my <strong>final year at Webbutvecklare.net</strong> and currently doing my first
+							internship at <strong>Netic AB</strong>.
 						</p>
 						<p>
-							Där bygger jag Scan2ERP, en webbapp som läser streckkoder med mobilkameran och hämtar
-							kundordrar direkt från affärssystemet. Det är första gången jag bygger något som riktiga
-							användare ska jobba i varje dag, och det är precis det jag tycker är roligast: att lösa
-							verkliga problem med kod.
+							There I'm building Scan2ERP, a web app that reads barcodes with the phone camera and fetches
+							customer orders straight from the ERP system. It's the first time I'm building a real
+							prototype that may be used by real customers, so I'm learning a lot about how to build a web app that is both 
+							<strong> robust</strong> and <strong>user-friendly</strong>.
 						</p>
 						<p>
-							Utöver kodningen gillar jag spel, kampsport och att meka med min veteranbil.
+							Outside of coding I enjoy gaming, martial arts, scuba diving and working on my Ford Mustang -69.
 						</p>
 					</div>
 
-					<aside className="about-facts" aria-label="Snabbfakta">
+					<aside className="about-facts" aria-label="Quick facts">
 						{FACTS.map((fact) => (
 							<div key={fact.label} className="about-fact">
 								<span className="about-fact-label">{fact.label}</span>
@@ -108,7 +120,7 @@ function About() {
 					</aside>
 				</div>
 
-				<h3 className="about-subheading">När jag inte kodar</h3>
+				<h3 className="about-subheading">When I'm not coding</h3>
 				<ul className="about-interests">
 					{INTERESTS.map((interest) => (
 						<li key={interest.title} className="about-interest">

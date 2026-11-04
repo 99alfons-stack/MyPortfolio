@@ -76,7 +76,7 @@
 
 .about-interests {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(2, 1fr); /* fyra intressen = 2 x 2 */
 	gap: 20px;
 	margin: 0;
 	padding: 0;

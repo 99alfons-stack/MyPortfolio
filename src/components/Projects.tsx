@@ -15,30 +15,30 @@ interface Project {
 const PROJECTS: Project[] = [
 	{
 		title: "Scan2ERP",
-		subtitle: "LIA-projekt hos Netic AB",
-		status: "Pågående",
+		subtitle: "Internship project at Netic AB",
+		status: "In progress",
 		description:
-			"Mobilanpassad webbapp som läser streckkoder, QR-koder och text med kameran och hämtar kundordrar direkt från affärssystemet Monitor ERP.",
+			"Mobile-friendly web app that reads barcodes, QR codes and text with the camera and fetches customer orders straight from the Monitor ERP system.",
 		highlights: [
-			"Skannar EAN-13, EAN-8, Code 128 och QR med mobil- eller datorkamera",
-			"Backend i Node.js som skyddar inloggningen mot Monitor",
-			"Eget lager för affärssystem, så att t.ex. Fortnox kan läggas till",
-			"Textigenkänning (OCR) av ordernummer med Tesseract.js, påbörjad",
+			"Scans EAN-13, EAN-8, Code 128 and QR codes with a phone or desktop camera",
+			"Node.js backend that keeps the Monitor credentials off the client",
+			"ERP adapter layer, so systems like Fortnox can be added",
+			"Text recognition (OCR) of order numbers with Tesseract.js, in progress",
 		],
 		tech: ["React", "TypeScript", "Node.js", "Vite", "Monitor API"],
 		githubUrl: "https://github.com/99alfons-stack/EAN-Netic",
 		visual: "scan",
 	},
 	{
-		title: "Min portfolio",
-		subtitle: "Den här sidan",
-		status: "Pågående",
+		title: "My portfolio",
+		subtitle: "This site",
+		status: "In progress",
 		description:
-			"Personlig portfolio byggd från grunden för att visa mina projekt och vad jag kan. Mörk design, mobilanpassad och utan UI-bibliotek.",
+			"Personal portfolio built from scratch to show my projects and skills. Dark design, responsive and no UI library.",
 		highlights: [
-			"Fast meny som markerar sektionen du är på",
-			"Kompetenser som nivåstaplar som fylls när de syns",
-			"Responsiv layout med egen CSS, utan ramverk",
+			"Sticky menu that highlights the section you are on",
+			"Skill bars that fill up when they scroll into view",
+			"Responsive layout with hand-written CSS, no framework",
 		],
 		tech: ["React", "TypeScript", "Vite", "CSS"],
 		githubUrl: "https://github.com/99alfons-stack/MyPortfolio",
@@ -82,11 +82,11 @@ function ProjectVisual({ type }: { type: Project["visual"] }) {
 
 function Projects() {
 	return (
-		<section id="projekt" className="section projects">
+		<section id="projects" className="section projects">
 			<div className="container">
-				<p className="section-label">02. Projekt</p>
-				<h2>Det jag bygger</h2>
-				<p className="projects-lead">Projekt jag arbetar med just nu.</p>
+				<p className="section-label">02. Projects</p>
+				<h2>What I'm building</h2>
+				<p className="projects-lead">Projects I'm working on right now.</p>
 
 				<div className="projects-grid">
 					{PROJECTS.map((project) => (
@@ -110,14 +110,14 @@ function Projects() {
 									))}
 								</ul>
 
-								<ul className="project-tech" aria-label="Tekniker">
+								<ul className="project-tech" aria-label="Technologies">
 									{project.tech.map((tech) => (
 										<li key={tech}>{tech}</li>
 									))}
 								</ul>
 
 								<a href={project.githubUrl} className="project-link" target="_blank" rel="noreferrer">
-									Visa koden på GitHub
+									View the code on GitHub
 									<svg viewBox="0 0 24 24" aria-hidden="true">
 										<path d="M7 17 17 7M9 7h8v8" />
 									</svg>

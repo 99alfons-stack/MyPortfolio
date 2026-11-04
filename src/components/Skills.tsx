@@ -17,7 +17,7 @@ interface SkillGroup {
 const SKILL_GROUPS: SkillGroup[] = [
 	{
 		title: "Frontend",
-		description: "Det användaren ser och klickar på",
+		description: "What the user sees and clicks on",
 		skills: [
 			{ name: "HTML & CSS", level: 40 },
 			{ name: "JavaScript", level: 40 },
@@ -27,19 +27,20 @@ const SKILL_GROUPS: SkillGroup[] = [
 	},
 	{
 		title: "Backend",
-		description: "Servrar, API:er och affärssystem",
+		description: "Servers, APIs and ERP systems",
 		skills: [
 			{ name: "Node.js", level: 20 },
-			{ name: "REST-API:er", level: 20 },
+			{ name: "REST APIs", level: 20 },
 		],
 	},
 	{
-		title: "Verktyg",
-		description: "Det jag bygger och samarbetar med",
+		title: "Tools",
+		description: "What I build and collaborate with",
 		skills: [
 			{ name: "Git & GitHub", level: 70 },
 			{ name: "Vite", level: 20 },
-			{ name: "Felsökning i DevTools", level: 30 },
+			{ name: "Debugging in DevTools", level: 30 },
+			{ name: "Claude", level: 50 },
 		],
 	},
 ];
@@ -47,11 +48,11 @@ const SKILL_GROUPS: SkillGroup[] = [
 // Text som beskriver nivån, visas bredvid procenten.
 function levelText(level: number): string {
 	if (level >= 85) return "Expert";
-	if (level >= 65) return "Avancerad";
-	if (level >= 45) return "God";
-	if (level >= 25) return "Grundläggande";
-	if (level > 0) return "Nybörjare";
-	return "Inte påbörjat";
+	if (level >= 65) return "Advanced";
+	if (level >= 45) return "Good";
+	if (level >= 25) return "Basic";
+	if (level > 0) return "Beginner";
+	return "Not started";
 }
 
 function Skills() {
@@ -77,19 +78,18 @@ function Skills() {
 	}, []);
 
 	return (
-		<section id="kompetenser" className="section skills">
+		<section id="skills" className="section skills">
 			<div className="container">
-				<p className="section-label">03. Kompetenser</p>
-				<h2>Vad jag kan</h2>
+				<p className="section-label">03. Skills</p>
+				<h2>What I know</h2>
 				<p className="skills-lead">
-					Staplarna visar hur långt jag har kommit i varje område, från 0 (inte påbörjat) till 100
-					(expert).
+					The bars show how far I've come in each area, from 0 (not started) to 100 (expert).
 				</p>
 
 				{/* Förklaring av skalan */}
 				<div className="skills-scale" aria-hidden="true">
-					<span>0 · Nybörjare</span>
-					<span>50 · Klarar mig själv</span>
+					<span>0 · Beginner</span>
+					<span>50 · Self-sufficient</span>
 					<span>100 · Expert</span>
 				</div>
 
@@ -116,7 +116,7 @@ function Skills() {
 											aria-valuemin={0}
 											aria-valuemax={100}
 											aria-valuenow={skill.level}
-											aria-valuetext={`${skill.level} av 100, ${levelText(skill.level)}`}
+											aria-valuetext={`${skill.level} of 100, ${levelText(skill.level)}`}
 										>
 											<div
 												className="skill-fill"
