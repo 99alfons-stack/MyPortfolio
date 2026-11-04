@@ -56,7 +56,7 @@ function MusicButton() {
 								<span>
 									<span className="music-band">{band.name}</span>
 									<span className="music-meta">
-										{band.genre} · {band.origin}
+										{band.genre}
 									</span>
 								</span>
 							</li>
