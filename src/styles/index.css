@@ -1,0 +1,208 @@
+/* Grundinställningar: färger, typsnitt och layout.
+   Alla färger samlas som variabler, så att hela sidans utseende ändras på ett ställe. */
+/* [Claude] Den gamla mörka paletten (lila/cyan), om du vill byta tillbaka:
+	--bg: #0b0d12; --bg-elevated: #12151c;
+	--surface: rgba(255, 255, 255, 0.04); --surface-hover: rgba(255, 255, 255, 0.07);
+	--border: rgba(255, 255, 255, 0.08); --border-strong: rgba(255, 255, 255, 0.16);
+	--text: #c9ceda; --text-muted: #8b93a5; --heading: #f5f7fb;
+	--accent: #7c5cff; --accent-2: #22d3ee;
+	(sätt även color-scheme: dark och mörka värden på --nav-bg, --surface-sunken och --badge-*)
+*/
+:root {
+	/* ===== [Claude] START: ljus palett med grönt och brunt ===== */
+	/* [Claude] Mörkare version. Första ljusa versionen: bg #f5f2ea, bg-elevated #fbf9f4,
+	   surface #ffffff, surface-hover #fdfbf6, surface-sunken #ede7da, text-muted #6f6557, accent-2 #8a5a30 */
+	/* [Claude] Version 2 (ljus sand): bg #e6e0d2, bg-elevated #efeadf, surface #f6f3ec,
+	   surface-hover #f9f7f1, surface-sunken #dad2c1, text #463f34, text-muted #615847,
+	   accent #2f6b4f, accent-2 #7d5029 */
+	--bg: #cfc6b2; /* sidans bakgrund – khaki/sand */
+	--bg-elevated: #d8d0be; /* menyer och paneler */
+	--surface: #e3ddcf; /* kort */
+	--surface-hover: #e8e3d7;
+	--surface-sunken: #c2b8a2; /* nedsänkta ytor: staplar, taggar, listrader */
+	--border: rgba(60, 45, 28, 0.16);
+	--border-strong: rgba(60, 45, 28, 0.3);
+
+	--text: #3a3328; /* brödtext – mörkare för att synas mot den mörkare bakgrunden */
+	--text-muted: #4f4738; /* hjälptext */
+	--heading: #1a251d; /* rubriker – nästan svart med grön ton */
+
+	--accent: #285c43; /* skogsgrön – mörkare för kontrast */
+	--accent-2: #6b4422; /* valnötsbrun – mörkare för kontrast */
+	--gradient: linear-gradient(135deg, var(--accent) 0%, #4f7a42 55%, var(--accent-2) 100%);
+
+	--nav-bg: rgba(207, 198, 178, 0.85); /* menyn när man scrollat */
+	--nav-bg-solid: rgba(207, 198, 178, 0.97); /* mobilmenyn */
+	--shadow-soft: 0 1px 2px rgba(60, 45, 30, 0.05), 0 10px 30px -14px rgba(60, 45, 30, 0.22);
+
+	/* Den svävande kodbrickan i Hero är mörkgrön för kontrast mot den ljusa sidan */
+	--badge-bg: #1f2d24;
+	--badge-text: #e9e4d8;
+	--code-key: #b9d8a8; /* salviagrön */
+	--code-string: #e8c79c; /* sand */
+	/* ===== [Claude] SLUT ===== */
+
+	--radius: 14px;
+	--nav-height: 68px;
+	--max-width: 1120px;
+	--gutter: 24px;
+
+	--sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+	--mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+
+	font: 16px/1.6 var(--sans);
+	color: var(--text);
+	background: var(--bg);
+	color-scheme: light; /* [Claude] var: dark */
+	-webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth; /* mjuk scroll när man klickar i menyn */
+}
+
+body {
+	margin: 0;
+	min-height: 100svh;
+	background: var(--bg);
+}
+
+h1,
+h2,
+h3 {
+	margin: 0;
+	color: var(--heading);
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+::selection {
+	/* [Claude] color-mix blandar accentfärgen med genomskinligt, så att färgen följer paletten */
+	background: color-mix(in srgb, var(--accent) 25%, transparent);
+	color: var(--heading);
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent-2);
+	outline-offset: 3px;
+	border-radius: 6px;
+}
+
+/* Gemensam behållare som centrerar innehållet */
+.container {
+	width: 100%;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 0 var(--gutter);
+}
+
+/* Sektioner hamnar under den fasta menyn när man hoppar till dem */
+section {
+	scroll-margin-top: var(--nav-height);
+}
+
+/* ---------- Knappar ---------- */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 22px;
+	font-weight: 600;
+	font-size: 15px;
+	border-radius: 999px;
+	border: 1px solid transparent;
+	transition:
+		transform 0.15s ease,
+		box-shadow 0.2s ease,
+		background 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.btn:hover {
+	transform: translateY(-1px);
+}
+
+.btn-primary {
+	color: #fff;
+	background: var(--gradient);
+	box-shadow: 0 8px 24px -8px color-mix(in srgb, var(--accent) 55%, transparent); /* [Claude] */
+}
+
+.btn-primary:hover {
+	box-shadow: 0 12px 32px -8px color-mix(in srgb, var(--accent) 70%, transparent); /* [Claude] */
+}
+
+.btn-ghost {
+	color: var(--heading);
+	background: var(--surface);
+	border-color: var(--border-strong);
+}
+
+.btn-ghost:hover {
+	background: var(--surface-hover);
+	border-color: color-mix(in srgb, var(--heading) 35%, transparent); /* [Claude] */
+}
+
+/* ---------- Platshållarsektioner (fylls i senare) ---------- */
+.section {
+	padding: 112px 0;
+	border-top: 1px solid var(--border);
+}
+
+.section-label {
+	font-family: var(--mono);
+	font-size: 13px;
+	color: var(--accent-2);
+	margin-bottom: 12px;
+}
+
+.section h2 {
+	font-size: clamp(28px, 4vw, 40px);
+	margin-bottom: 16px;
+}
+
+.section-placeholder {
+	color: var(--text-muted);
+}
+
+/* Respektera användare som valt mindre rörelse i systemet */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+		transition: none !important;
+	}
+}
+
+@media (max-width: 600px) {
+	:root {
+		--gutter: 16px;
+	}
+	.section {
+		padding: 80px 0;
+	}
+}
