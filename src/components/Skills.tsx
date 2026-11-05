@@ -19,7 +19,7 @@ const SKILL_GROUPS: SkillGroup[] = [
 		title: "Frontend",
 		description: "What the user sees and clicks on",
 		skills: [
-			{ name: "HTML & CSS", level: 40 },
+			{ name: "HTML & CSS", level: 60 },
 			{ name: "JavaScript", level: 40 },
 			{ name: "TypeScript", level: 40 },
 			{ name: "React", level: 20 },
@@ -39,7 +39,7 @@ const SKILL_GROUPS: SkillGroup[] = [
 		skills: [
 			{ name: "Git & GitHub", level: 70 },
 			{ name: "Vite", level: 20 },
-			{ name: "Debugging in DevTools", level: 30 },
+			{ name: "Debugging in DevTools", level: 50 },
 			{ name: "Claude", level: 50 },
 		],
 	},

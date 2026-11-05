@@ -45,7 +45,7 @@
 	height: 34px;
 	font-size: 16px;
 	font-weight: 800;
-	color: #fff;
+	color: var(--on-accent); /* [Claude] var #fff */
 	background: var(--gradient);
 	border-radius: 10px;
 	box-shadow: 0 6px 18px -6px color-mix(in srgb, var(--accent) 60%, transparent); /* [Claude] */

@@ -10,35 +10,39 @@
 */
 :root {
 	/* ===== [Claude] START: mörk palett med naturfärger (skog, mossa, sand, valnöt) ===== */
+	/* [Claude] Version 4 (för mörk på mobil): bg #161b15, bg-elevated #1d231b, surface #232a21,
+	   surface-hover #2a3227, surface-sunken #12160f, border .1/.2, text #d6cfbd, text-muted #a49c88,
+	   heading #f1ecdf, accent #5a9467, accent-2 #b07a45, gradient-mitten #6f8a45, nav-bg rgba(22,27,21,..) */
 	/* [Claude] Version 3 (mörk khaki, ljust tema): bg #cfc6b2, bg-elevated #d8d0be, surface #e3ddcf,
 	   surface-hover #e8e3d7, surface-sunken #c2b8a2, border rgba(60,45,28,.16/.3), text #3a3328,
 	   text-muted #4f4738, heading #1a251d, accent #285c43, accent-2 #6b4422, gradient-mitten #4f7a42,
 	   nav-bg rgba(207,198,178,.85/.97), badge-bg #1f2d24, color-scheme: light */
-	--bg: #161b15; /* sidans bakgrund – djup skogsgrön, nästan svart */
-	--bg-elevated: #1d231b; /* menyer och paneler */
-	--surface: #232a21; /* kort – mossgrön */
-	--surface-hover: #2a3227;
-	--surface-sunken: #12160f; /* nedsänkta ytor: staplar, taggar, listrader */
-	--border: rgba(220, 205, 170, 0.1); /* sandfärgade kanter */
-	--border-strong: rgba(220, 205, 170, 0.2);
+	--bg: #1c2219; /* sidans bakgrund – mörk skogsgrön */
+	--bg-elevated: #242b21; /* menyer och paneler */
+	--surface: #2b3328; /* kort – mossgrön */
+	--surface-hover: #333c2f;
+	--surface-sunken: #414b3b; /* staplar, taggar, listrader – LJUSARE än korten så de syns i mörkt tema */
+	--border: rgba(220, 205, 170, 0.14); /* sandfärgade kanter */
+	--border-strong: rgba(220, 205, 170, 0.26);
 
-	--text: #d6cfbd; /* brödtext – ljus sand */
-	--text-muted: #a49c88; /* hjälptext – torrt gräs */
-	--heading: #f1ecdf; /* rubriker – krämvit */
+	--text: #e0d9c7; /* brödtext – ljus sand */
+	--text-muted: #b8b09b; /* hjälptext – torrt gräs */
+	--heading: #f6f1e4; /* rubriker – krämvit */
 
-	--accent: #5a9467; /* skogsgrön – ljusare så den syns mot mörk bakgrund */
-	--accent-2: #b07a45; /* valnöt/koppar */
-	--gradient: linear-gradient(135deg, var(--accent) 0%, #6f8a45 55%, var(--accent-2) 100%);
+	--accent: #6aa877; /* skogsgrön – ljusare så den syns mot mörk bakgrund */
+	--accent-2: #c48a52; /* valnöt/koppar */
+	--gradient: linear-gradient(135deg, var(--accent) 0%, #87a352 55%, var(--accent-2) 100%);
 
-	--nav-bg: rgba(22, 27, 21, 0.85); /* menyn när man scrollat */
-	--nav-bg-solid: rgba(22, 27, 21, 0.97); /* mobilmenyn */
+	--nav-bg: rgba(28, 34, 25, 0.85); /* menyn när man scrollat */
+	--nav-bg-solid: rgba(28, 34, 25, 0.97); /* mobilmenyn */
 	--shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.25), 0 10px 30px -14px rgba(0, 0, 0, 0.6);
 
 	/* Den svävande kodbrickan i Hero – ännu mörkare än sidan så den sticker ut */
-	--badge-bg: #0e120d;
+	--badge-bg: #11150f;
 	--badge-text: #e9e4d8;
 	--code-key: #b9d8a8; /* salviagrön */
 	--code-string: #e8c79c; /* sand */
+	--on-accent: #10140e; /* text på grön/brun gradient – mörk, eftersom accenten är ljus nu */
 	/* ===== [Claude] SLUT ===== */
 
 	--radius: 14px;
@@ -142,7 +146,7 @@ section {
 }
 
 .btn-primary {
-	color: #fff;
+	color: var(--on-accent); /* [Claude] var #fff */
 	background: var(--gradient);
 	box-shadow: 0 8px 24px -8px color-mix(in srgb, var(--accent) 55%, transparent); /* [Claude] */
 }
