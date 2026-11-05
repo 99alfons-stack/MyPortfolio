@@ -9,34 +9,33 @@
 	(sätt även color-scheme: dark och mörka värden på --nav-bg, --surface-sunken och --badge-*)
 */
 :root {
-	/* ===== [Claude] START: ljus palett med grönt och brunt ===== */
-	/* [Claude] Mörkare version. Första ljusa versionen: bg #f5f2ea, bg-elevated #fbf9f4,
-	   surface #ffffff, surface-hover #fdfbf6, surface-sunken #ede7da, text-muted #6f6557, accent-2 #8a5a30 */
-	/* [Claude] Version 2 (ljus sand): bg #e6e0d2, bg-elevated #efeadf, surface #f6f3ec,
-	   surface-hover #f9f7f1, surface-sunken #dad2c1, text #463f34, text-muted #615847,
-	   accent #2f6b4f, accent-2 #7d5029 */
-	--bg: #cfc6b2; /* sidans bakgrund – khaki/sand */
-	--bg-elevated: #d8d0be; /* menyer och paneler */
-	--surface: #e3ddcf; /* kort */
-	--surface-hover: #e8e3d7;
-	--surface-sunken: #c2b8a2; /* nedsänkta ytor: staplar, taggar, listrader */
-	--border: rgba(60, 45, 28, 0.16);
-	--border-strong: rgba(60, 45, 28, 0.3);
+	/* ===== [Claude] START: mörk palett med naturfärger (skog, mossa, sand, valnöt) ===== */
+	/* [Claude] Version 3 (mörk khaki, ljust tema): bg #cfc6b2, bg-elevated #d8d0be, surface #e3ddcf,
+	   surface-hover #e8e3d7, surface-sunken #c2b8a2, border rgba(60,45,28,.16/.3), text #3a3328,
+	   text-muted #4f4738, heading #1a251d, accent #285c43, accent-2 #6b4422, gradient-mitten #4f7a42,
+	   nav-bg rgba(207,198,178,.85/.97), badge-bg #1f2d24, color-scheme: light */
+	--bg: #161b15; /* sidans bakgrund – djup skogsgrön, nästan svart */
+	--bg-elevated: #1d231b; /* menyer och paneler */
+	--surface: #232a21; /* kort – mossgrön */
+	--surface-hover: #2a3227;
+	--surface-sunken: #12160f; /* nedsänkta ytor: staplar, taggar, listrader */
+	--border: rgba(220, 205, 170, 0.1); /* sandfärgade kanter */
+	--border-strong: rgba(220, 205, 170, 0.2);
 
-	--text: #3a3328; /* brödtext – mörkare för att synas mot den mörkare bakgrunden */
-	--text-muted: #4f4738; /* hjälptext */
-	--heading: #1a251d; /* rubriker – nästan svart med grön ton */
+	--text: #d6cfbd; /* brödtext – ljus sand */
+	--text-muted: #a49c88; /* hjälptext – torrt gräs */
+	--heading: #f1ecdf; /* rubriker – krämvit */
 
-	--accent: #285c43; /* skogsgrön – mörkare för kontrast */
-	--accent-2: #6b4422; /* valnötsbrun – mörkare för kontrast */
-	--gradient: linear-gradient(135deg, var(--accent) 0%, #4f7a42 55%, var(--accent-2) 100%);
+	--accent: #5a9467; /* skogsgrön – ljusare så den syns mot mörk bakgrund */
+	--accent-2: #b07a45; /* valnöt/koppar */
+	--gradient: linear-gradient(135deg, var(--accent) 0%, #6f8a45 55%, var(--accent-2) 100%);
 
-	--nav-bg: rgba(207, 198, 178, 0.85); /* menyn när man scrollat */
-	--nav-bg-solid: rgba(207, 198, 178, 0.97); /* mobilmenyn */
-	--shadow-soft: 0 1px 2px rgba(60, 45, 30, 0.05), 0 10px 30px -14px rgba(60, 45, 30, 0.22);
+	--nav-bg: rgba(22, 27, 21, 0.85); /* menyn när man scrollat */
+	--nav-bg-solid: rgba(22, 27, 21, 0.97); /* mobilmenyn */
+	--shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.25), 0 10px 30px -14px rgba(0, 0, 0, 0.6);
 
-	/* Den svävande kodbrickan i Hero är mörkgrön för kontrast mot den ljusa sidan */
-	--badge-bg: #1f2d24;
+	/* Den svävande kodbrickan i Hero – ännu mörkare än sidan så den sticker ut */
+	--badge-bg: #0e120d;
 	--badge-text: #e9e4d8;
 	--code-key: #b9d8a8; /* salviagrön */
 	--code-string: #e8c79c; /* sand */
@@ -53,7 +52,7 @@
 	font: 16px/1.6 var(--sans);
 	color: var(--text);
 	background: var(--bg);
-	color-scheme: light; /* [Claude] var: dark */
+	color-scheme: dark; /* [Claude] mörkt naturtema, var: light */
 	-webkit-font-smoothing: antialiased;
 }
 

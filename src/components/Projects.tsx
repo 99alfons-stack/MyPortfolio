@@ -3,17 +3,15 @@ import "../styles/Projects.css";
 interface Project {
 	title: string;
 	subtitle: string;
-	status: string; // t.ex. "Pågående"
+	status: string; 
 	description: string;
-	highlights: string[]; // det viktigaste du gjort, en rad per punkt
+	highlights: string[]; 
 	tech: string[];
-	// [Claude] Ändrat från "githubUrl: string" till valfri (?), eftersom betongsidan inte har något repo än.
-	githubUrl?: string; // valfri: utan länk visas ingen GitHub-knapp
-	// [Claude] Lagt till "concrete" för betongsidans bild.
+	githubUrl?: string; 
 	visual: "scan" | "portfolio" | "concrete"; // vilken illustration kortet visar
 }
 
-// Lägg till nya projekt överst i listan.
+// Lägg till nya projekt överst i listan!!
 const PROJECTS: Project[] = [
 	{
 		title: "Scan2ERP",
@@ -31,13 +29,10 @@ const PROJECTS: Project[] = [
 		githubUrl: "https://github.com/99alfons-stack/EAN-Netic",
 		visual: "scan",
 	},
-	// ===== [Claude] START: nytt projekt – sidan för föräldrarnas betongfigurer och sällskapsspel =====
-	// Ändra gärna titel och text. tech är en gissning (samma som portfolion) – justera efter vad du faktiskt använder.
-	// Lägg till githubUrl: "https://github.com/..." när repot finns, så visas GitHub-knappen.
-	// [Claude] Flyttad under Scan2ERP så att LIA-projektet visas först.
+	
 	{
 		title: "Concrete shop",
-		subtitle: "Website for my parents' business",
+		subtitle: "Website for my parents' small side business",
 		status: "In progress",
 		description:
 			"Website for my parents, who make and sell handcrafted concrete figurines and board games. The site shows off their products and makes it easy for customers to get in touch.",
@@ -49,7 +44,7 @@ const PROJECTS: Project[] = [
 		tech: ["React", "TypeScript", "Vite", "CSS"],
 		visual: "concrete",
 	},
-	// ===== [Claude] SLUT: nytt projekt =====
+	
 	{
 		title: "My portfolio",
 		subtitle: "This site",
@@ -67,7 +62,7 @@ const PROJECTS: Project[] = [
 	},
 ];
 
-// Dekorativ bild överst i kortet, ritad med SVG.
+
 function ProjectVisual({ type }: { type: Project["visual"] }) {
 	if (type === "scan") {
 		return (

@@ -8,6 +8,7 @@ interface Band {
 	name: string;
 	genre: string;
 	
+	
 }
 
 // Lägg till, ta bort eller byt ordning på banden här.
@@ -15,6 +16,8 @@ const BANDS: Band[] = [
 	{ name: "Red Hot Chili Peppers", genre: "Funk rock" },
 	{ name: "Alice in Chains", genre: "Grunge" },
 	{ name: "Yello", genre: "Electronic" },
+	{ name: "Staind", genre: "Alternative rock" }
+
 ];
 
 function MusicButton() {
