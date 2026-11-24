@@ -17,13 +17,15 @@
 	   surface-hover #e8e3d7, surface-sunken #c2b8a2, border rgba(60,45,28,.16/.3), text #3a3328,
 	   text-muted #4f4738, heading #1a251d, accent #285c43, accent-2 #6b4422, gradient-mitten #4f7a42,
 	   nav-bg rgba(207,198,178,.85/.97), badge-bg #1f2d24, color-scheme: light */
-	--bg: #1c2219; /* sidans bakgrund – mörk skogsgrön */
-	--bg-elevated: #242b21; /* menyer och paneler */
-	--surface: #2b3328; /* kort – mossgrön */
-	--surface-hover: #333c2f;
-	--surface-sunken: #414b3b; /* staplar, taggar, listrader – LJUSARE än korten så de syns i mörkt tema */
-	--border: rgba(220, 205, 170, 0.14); /* sandfärgade kanter */
-	--border-strong: rgba(220, 205, 170, 0.26);
+	/* [Claude] Version 5 (för mörk på mobil): bg #1c2219, bg-elevated #242b21, surface #2b3328,
+	   surface-hover #333c2f, surface-sunken #414b3b, border .14/.26, nav-bg rgba(28,34,25,..) */
+	--bg: #283024; /* sidans bakgrund – skogsgrön, ljusare så den inte ser svart ut på mobil */
+	--bg-elevated: #313a2c; /* menyer och paneler */
+	--surface: #39432f; /* kort – mossgrön, tydligare skillnad mot bakgrunden */
+	--surface-hover: #424d37;
+	--surface-sunken: #505c48; /* staplar, taggar, listrader – LJUSARE än korten så de syns i mörkt tema */
+	--border: rgba(220, 205, 170, 0.18); /* sandfärgade kanter */
+	--border-strong: rgba(220, 205, 170, 0.32);
 
 	--text: #e0d9c7; /* brödtext – ljus sand */
 	--text-muted: #b8b09b; /* hjälptext – torrt gräs */
@@ -33,8 +35,8 @@
 	--accent-2: #c48a52; /* valnöt/koppar */
 	--gradient: linear-gradient(135deg, var(--accent) 0%, #87a352 55%, var(--accent-2) 100%);
 
-	--nav-bg: rgba(28, 34, 25, 0.85); /* menyn när man scrollat */
-	--nav-bg-solid: rgba(28, 34, 25, 0.97); /* mobilmenyn */
+	--nav-bg: rgba(40, 48, 36, 0.85); /* menyn när man scrollat */
+	--nav-bg-solid: rgba(40, 48, 36, 0.97); /* mobilmenyn */
 	--shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.25), 0 10px 30px -14px rgba(0, 0, 0, 0.6);
 
 	/* Den svävande kodbrickan i Hero – ännu mörkare än sidan så den sticker ut */
