@@ -40,6 +40,7 @@ const SKILL_GROUPS: SkillGroup[] = [
 			{ name: "Git & GitHub", level: 70 },
 			{ name: "Vite", level: 20 },
 			{ name: "Debugging in DevTools", level: 50 },
+			{ name: "Code comprehension", level: 60 },
 			{ name: "Claude", level: 50 },
 		],
 	},

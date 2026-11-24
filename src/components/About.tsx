@@ -52,13 +52,12 @@ const INTERESTS: Interest[] = [
 		),
 	},
 	{
-		title: "Martial arts",
-		text: "I train  ju-jutsu.",
+		title: "Training",
+		text: "I go to the gym and train ju-jutsu.",
 		icon: svg(
 			<>
-				<path d="M7 11V7a3 3 0 0 1 3-3h4a4 4 0 0 1 4 4v5a6 6 0 0 1-6 6h-1a4 4 0 0 1-4-4z" />
-				<path d="M7 11h6a2 2 0 0 0 0-4" />
-				<path d="M9 19v2h6v-2" />
+				{/* Hantel */}
+				<path d="M6 7v10M18 7v10M3 9.5v5M21 9.5v5M6 12h12" />
 			</>,
 		),
 	},
@@ -105,7 +104,7 @@ function About() {
 							<strong> robust</strong> and <strong>user-friendly</strong>.
 						</p>
 						<p>
-							Outside of coding I enjoy gaming, martial arts, scuba diving and working on my Ford Mustang -69.
+							Outside of coding I enjoy gaming, training, scuba diving and working on my Ford Mustang -69.
 						</p>
 					</div>
 
