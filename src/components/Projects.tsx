@@ -50,7 +50,7 @@ const PROJECTS: Project[] = [
 		subtitle: "This site",
 		status: "In progress",
 		description:
-			"Personal portfolio built from scratch to show my projects and skills. Dark design, responsive and no UI library.",
+			"Personal portfolio built from scratch to show my projects and skills. Light forest-green design, responsive and no UI library.",
 		highlights: [
 			"Sticky menu that highlights the section you are on",
 			"Skill bars that fill up when they scroll into view",
